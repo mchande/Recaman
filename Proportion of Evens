@@ -17,7 +17,7 @@ def recevens(n):
 
 def recevenstocsv(n):
   evens = []
-  for v in range(n):
+  for v in range(1, n):
     evens.append(recevens(v))
   numpy_data = np.array(evens)    
   df = pd.DataFrame(data=numpy_data, columns=["Proportion of Even Terms"])
