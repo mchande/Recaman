@@ -7,3 +7,9 @@ def recaman(n):
     else: seq+=[seq[i-1]+i]
   return seq
 
+def recdiv(n):
+  recdiv = []
+  recarray = recaman(n)
+  for i in range(len(recarray)):
+    recdiv.append((recarray[i])/(recarray[i-1]))
+  return recdiv
