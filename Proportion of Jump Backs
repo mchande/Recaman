@@ -10,8 +10,8 @@ def recaman(n):
 def recdec(n):
   count = 0
   recarray = recaman(n)
-  for i in range(len(recarray)):
-    if(recarray[i-1] > recarray[i]):
+  for i in range(len(recarray)-1):
+    if(recarray[i] > recarray[i+1]):
       count = count + 1
     else: count = count + 0
   return count/n
