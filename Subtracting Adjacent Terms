@@ -16,23 +16,11 @@ def recsub(n):
   for i in range(len(recarray)-1):
     recsub.append((recarray[i+1])-(recarray[i]))
   return recsub
-  
-  
-def recdiv(n):
-  recdiv = []
-  recarray = recaman(n)
-  for i in range(len(recarray)-1):
-    if(i==0): recdiv.append(0)
-    else: recdiv.append((recarray[i+1])/(recarray[i]))
-  return recdiv
 
 #allow export to csv
 def recsubtocsv(n):
-  grid = np.array(recsub(0), recdiv(0))
-  for v in range(1, n):
-    numpy_sub = np.array(recsub(v), recdiv(v))
-    grid = np.vstack([grid, numpy_sub])    
-  df = pd.DataFrame(data=grid, columns=["Subtracting Adjacent Terms", "Dividing Adjacent Terms"])
+  numpy_data = np.array(recsub(n))    
+  df = pd.DataFrame(data=numpy_data)
   df.to_csv(r'C:\Users\Maya Chande\Documents\Recaman\RecSubDiv.csv')
   print("success!")
   
