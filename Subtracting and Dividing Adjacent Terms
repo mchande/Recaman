@@ -9,12 +9,14 @@ def recaman(n):
     else: seq+=[seq[i-1]+i]
   return seq
 
+
 def recsub(n):
   recsub = []
   recarray = recaman(n)
   for i in range(len(recarray)-1):
     recsub.append((recarray[i+1])-(recarray[i]))
   return recsub
+  
   
 def recdiv(n):
   recdiv = []
