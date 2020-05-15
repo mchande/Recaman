@@ -1,0 +1,36 @@
+import pandas as pd
+import numpy as np
+def recaman(n):
+  seq = []
+  for i in range(n):
+    if(i == 0): x = 0
+    else: x = seq[i-1]-i
+    if(x>=0 and x not in seq): seq+=[x]
+    else: seq+=[seq[i-1]+i]
+  return seq
+
+def recsub(n):
+  recsub = []
+  recarray = recaman(n)
+  for i in range(len(recarray)-1):
+    recsub.append((recarray[i+1])-(recarray[i]))
+  return recsub
+  
+def recdiv(n):
+  recdiv = []
+  recarray = recaman(n)
+  for i in range(len(recarray)-1):
+    if(i==0): recdiv.append(0)
+    else: recdiv.append((recarray[i+1])/(recarray[i]))
+  return recdiv
+
+#allow export to csv
+def recsubtocsv(n):
+  for v in range(n):
+    numpy_data=numpy.array(recsub(v), recdiv(v))
+  df = pd.DataFrame(data=numpy_data, columns=["Subtracting Adjacent Terms", "Dividing Adjacent Terms"])
+  df.to_csv(r'C:\Users\Maya Chande\Documents\Recaman\RecSubDiv.csv')
+  print("success!")
+  
+  
+    
