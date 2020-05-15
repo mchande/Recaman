@@ -15,7 +15,7 @@ def recdiv(n):
     else: recdiv.append((recarray[i+1])/(recarray[i]))
   return recdiv
 
-def recsubtocsv(n):
+def recdivtocsv(n):
   numpy_data = np.array(recdiv(n))    
   df = pd.DataFrame(data=numpy_data, columns=["Dividing Adjacent Terms"])
   df.to_csv(r'C:\Users\Maya Chande\Documents\Recaman\RecDiv.csv')
