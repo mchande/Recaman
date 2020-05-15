@@ -28,9 +28,11 @@ def recdiv(n):
 
 #allow export to csv
 def recsubtocsv(n):
-  for v in range(n):
-    numpy_data=np.array(recsub(v), recdiv(v))
-  df = pd.DataFrame(data=numpy_data, columns=["Subtracting Adjacent Terms", "Dividing Adjacent Terms"])
+  grid = np.array(recsub(0), recdiv(0))
+  for v in range(1, n):
+    numpy_sub = np.array(recsub(v), recdiv(v))
+    grid = np.vstack([grid, numpy_sub])    
+  df = pd.DataFrame(data=grid, columns=["Subtracting Adjacent Terms", "Dividing Adjacent Terms"])
   df.to_csv(r'C:\Users\Maya Chande\Documents\Recaman\RecSubDiv.csv')
   print("success!")
   
