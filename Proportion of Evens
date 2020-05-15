@@ -14,3 +14,12 @@ def recevens(n):
     if (r%2==0): count = count +1
     else: count = count + 0
   return count/n
+
+def recevenstocsv(n):
+  evens = []
+  for v in range(n):
+    evens.append(recevens(v))
+  numpy_data = np.array(evens)    
+  df = pd.DataFrame(data=numpy_data, columns=["Proportion of Even Terms"])
+  df.to_csv(r'C:\Users\Maya Chande\Documents\Recaman\RecEvens.csv')
+  print("success!")
