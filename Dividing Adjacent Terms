@@ -11,6 +11,6 @@ def recdiv(n):
   recdiv = []
   recarray = recaman(n)
   for i in range(len(recarray)):
-    if(i==1): recdiv.append(0)
-    else: recdiv.append((recarray[i])/(recarray[i-1]))
+    if(i==0): recdiv.append(0)
+    else: recdiv.append((recarray[i+1])/(recarray[i]))
   return recdiv
