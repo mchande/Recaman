@@ -13,7 +13,7 @@ def recaman(n):
 def recsub(n):
   recsub = []
   recarray = recaman(n)
-  for i in range(len(recarray)-1):
+  for i in range(len(recarray)-2):
     recsub.append((recarray[i+1])-(recarray[i]))
   return recsub
 
