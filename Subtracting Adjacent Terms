@@ -21,7 +21,7 @@ def recsub(n):
 def recsubtocsv(n):
   numpy_data = np.array(recsub(n))    
   df = pd.DataFrame(data=numpy_data)
-  df.to_csv(r'C:\Users\Maya Chande\Documents\Recaman\RecSubDiv.csv')
+  df.to_csv(r'C:\Users\Maya Chande\Documents\Recaman\RecSub.csv')
   print("success!")
   
   
