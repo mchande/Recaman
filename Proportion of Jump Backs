@@ -1,3 +1,7 @@
+import math
+import pandas as pd
+import numpy as np
+
 def recaman(n):
   seq = []
   for i in range(n):
@@ -10,7 +14,7 @@ def recaman(n):
 def recdec(n):
   count = 0
   recarray = recaman(n)
-  for i in range(len(recarray)-1):
+  for i in range(n-1):
     if(recarray[i] > recarray[i+1]):
       count = count + 1
     else: count = count + 0
@@ -24,3 +28,23 @@ def recjumpbacktocsv(n):
   df = pd.DataFrame(data=numpy_data, columns=["Proportion of Terms that Jump Back"])
   df.to_csv(r'C:\Users\Maya Chande\Documents\Recaman\RecJumpBack.csv')
   print("success!")
+
+def recjbframe(n1, n, frame):
+  recarray = recaman(n)
+  frameprops = []
+  count = 0
+  for fr in range(math.floor(n/frame)-1):
+    for index in range(n1, n1+frame-1):
+      if(recarray[index] > recarray [index+1]):
+        count = count + 1
+      else: count = count + 0
+    frameprops.append(count/(frame-1))
+  return frameprops
+  
+def recjbframetocsv(n1, n, frame):
+  array = recjbframe(n1, n, frame)
+  numpy_data = np.array(array)
+  df = pd.DataFrame(data=numpy_data, columns=["Proportion of Terms that Jump Back in Frame"])
+  df.to_csv(r'C:\Users\Maya Chande\Documents\Recaman\RecJumpBackFrame.csv')
+  print("success!")
+  
